@@ -1,0 +1,58 @@
+{
+    "phones": [
+        {
+            "id": 0,
+            "imageUrl": "https://avatars.mds.yandex.net/get-mpic/4380539/img_id7341649431705533527.jpeg/13hq",
+            "name": "Samsung Galaxy s21",
+            "colors": ["серый", "белый"],
+            "price": 1000,
+            "category": 0,
+            "info": "Samsung S21, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 1,
+            "imageUrl": "https://www.creditasia.uz/upload/iblock/95b/smartfon-iphone-12-128gb-white.gif",
+            "name": "Iphone 13",
+            "colors": ["черный", "серый"],
+            "price": 1200,
+            "category": [2,5],
+            "info": "Iphone 13, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 2,
+            "imageUrl": "https://www.notebookcheck-ru.com/uploads/tx_nbc2/XiaomiMi11Ultra.jpg",
+            "name": "Mi 11 Ultra",
+            "colors": ["черный", "серый"],
+            "price": 1100,
+            "category": 2,
+            "info": "Mi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 3,
+            "imageUrl": "https://www.notebookcheck-ru.com/uploads/tx_nbc2/XiaomiMi11Ultra.jpg",
+            "name": "Mi 11 Ultra",
+            "colors": ["черный", "серый", "белый"],
+            "price": 1100,
+            "category": 2,
+            "info": "Mi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 4,
+            "imageUrl": "https://www.notebookcheck-ru.com/uploads/tx_nbc2/XiaomiMi11Ultra.jpg",
+            "name": "Mi 11 Ultra",
+            "colors": ["черный", "серый", "белый"],
+            "price": 1100,
+            "category": 2,
+            "info": "Mi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 5,
+            "imageUrl": "https://www.notebookcheck-ru.com/uploads/tx_nbc2/XiaomiMi11Ultra.jpg",
+            "name": "Mi 11 Ultra",
+            "colors": ["черный", "серый", "белый"],
+            "price": 1100,
+            "category": 2,
+            "info": "Mi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          }
+    ]
+}
