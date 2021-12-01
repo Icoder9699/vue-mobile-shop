@@ -44,17 +44,14 @@
         border: 1px solid #ccc;
         padding: 10px;
         cursor: pointer;
-    }
-    .categories li:first-child{
-        border-radius: 5px 0 0 5px ;
-    }
-    .categories li:last-child{
-        border-radius: 0 5px 5px 0 ;
+        width: 80px;
+        text-align: calc();
+        transform: skew(-15deg);
     }
 
     .active{
-        background-color:rgb(56, 56, 56);
-        color: #fff;
-        border: 1px solid #000;
+        background-color:rgb(61, 61, 61);
+        color: rgb(253, 253, 253);
+        font-weight: bold;
     }
 </style>

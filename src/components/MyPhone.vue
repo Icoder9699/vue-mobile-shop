@@ -28,7 +28,12 @@
             <p class="card__price">Цена: <strong>{{phone.price}}$</strong></p>
 
             <div class="flex">
-                 <button class="btn btn__cart" >Добавить</button>
+                 <button 
+                    class="btn btn__cart" 
+                    @click="addToCart"
+                 >
+                    Добавить
+                 </button>
                  <button class="btn btn__info" @click="showInfo">Подробно</button>
             </div>
         </div>
@@ -58,10 +63,6 @@ export default {
             descShow: false
         }
     },
-    created(){
-        // console.log(this.pizza.sizes.includes(30));
-        // console.log(this.phone.colors.includes('черный'))
-    },
     methods: {
         changeColor(color){
             this.selectedColor = color
@@ -71,6 +72,15 @@ export default {
         },
         showInfo(){
             this.descShow = true
+        },
+        addToCart(){
+            const phone = {
+                id: this.phone.id,
+                color: this.selectedColor,
+                name: this.phone.name,
+                price: this.phone.price,
+            }
+            this.$store.dispatch('cart/addToCart', phone)
         }
     }
 }
@@ -78,13 +88,14 @@ export default {
 <style scoped>
     .card{
         margin: 20px 0;
-        padding: 20px;
-        border-radius: 10px;
+        padding: 25px;
+        /* border-radius: 10px; */
         width: 300px;
         box-shadow: 0 0 3px #ccc;
         height: 390px;
     }
     .card__info{
+        padding: 25px;
         display: flex;
         flex-direction: column;
         height: 390px;
@@ -113,10 +124,10 @@ export default {
     .flex li {
         border: 1px solid orange;
         color: orange;
-        padding: 10px;
+        padding: 7px;
+        transform: skew(-20deg);
         width: 70px;
         text-align: center;
-        border-radius: 5px;
         cursor: pointer;
         transition: all 300m linear;
         font-size: 14px;
@@ -145,8 +156,9 @@ export default {
         border: 1px solid #000;
         color: #000;
         background: #fff;
-        border-radius: 5px;
         cursor: pointer;
+        transform: skew(-20deg);
+        transition: all 300ms linear;
     }
 
     .btn:hover{

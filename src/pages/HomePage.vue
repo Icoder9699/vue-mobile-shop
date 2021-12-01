@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-   
+    {{this.$store.state.cart}}
     <div  class="flex">
       <my-categories 
         :categories="categories"
