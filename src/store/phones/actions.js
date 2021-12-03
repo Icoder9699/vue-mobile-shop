@@ -5,3 +5,7 @@ export function fetchPhones({commit}){
 export function setLoading({commit}, payload){
     return commit('setLoading', payload)
 }
+
+export function setCategory({commit}, payload){
+    return commit('setCategory', payload)
+}

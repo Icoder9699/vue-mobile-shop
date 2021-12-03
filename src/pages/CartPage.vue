@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <div class="cart__empty" v-if="this.$store.obj">
+        <div class="cart__empty" v-if="this.$store.state.cart.obj">
             <h2>Корзина пустая</h2>
             <p>
                 Вероятней всего, вы не заказывали ещё телефон.
@@ -23,7 +23,7 @@
 <script>
 
 export default {
-    
+
 }
 </script>
 
@@ -50,6 +50,7 @@ export default {
         text-align: center;
     }
     .btn__cart{
+        transition: all 300ms linear;
         height: 50px;
         width: 200px;
         margin: 0 auto;

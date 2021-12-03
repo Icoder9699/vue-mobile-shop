@@ -2,8 +2,8 @@
     <div>
         <ul  class="categories">
             <li 
-                :class="(selectedCategory === 0) ? 'active' : ''"
-                @click="$emit('setCategory', 0)"
+                :class="(selectedCategory === null) ? 'active' : ''"
+                @click="changeCategory(null)"
             >
                 Все
             </li>
@@ -12,7 +12,7 @@
                 v-for="(category, index) in categories"
                 :key="index"
                 :category="category"
-                @click='$emit("setCategory", index + 1)'
+                @click='changeCategory(index + 1)'
             >
                 {{category}}
             </li>
@@ -28,8 +28,22 @@
                 type: Array,
                 required: true
             },
-            selectedCategory: Number
         },
+        data(){
+            return{
+                selectedCategory: 0
+            }
+        },
+        methods: {
+            changeCategory(id){
+                this.$store.dispatch('phonesObj/setCategory', id)   
+                this.$store.dispatch('phonesObj/fetchPhones', id)   
+                this.selectedCategory = id         
+            }
+        },
+        created(){
+            this.selectedCategory = this.$store.getters['phonesObj/getCategory']
+        }
     }
 </script>
 

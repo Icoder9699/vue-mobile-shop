@@ -5,7 +5,6 @@
     </component>
   </div>
 </template>
-
 <script>
 import MainLayout from './templates/MainLayout.vue'
 import EmptyLayout from './templates/EmptyLayout.vue'
@@ -25,6 +24,9 @@ export default {
     layout(){
       return (this.$route.meta.layout || 'empty') + '-layout'
     }
+  },
+  created(){
+    this.$store.dispatch('phonesObj/fetchPhones')
   }
 }
 </script>

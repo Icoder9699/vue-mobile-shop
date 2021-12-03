@@ -20,10 +20,10 @@ export default {
     select{
         border: none;
         outline: none;
-        padding: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
     }
     select option{
-        padding: 10px;
-        height: 20px;
+        height: 10px;
     }
 </style>

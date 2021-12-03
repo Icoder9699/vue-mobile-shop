@@ -4,8 +4,6 @@
     <div  class="flex">
       <my-categories 
         :categories="categories"
-        :selectedCategory="selectedCategory"
-        @setCategory="setSelectedCategory"
       />
 
       <div>
@@ -42,22 +40,18 @@ export default {
   data(){
     return {
       categories: [
-        "Новые", 
-        "Черные",
-        "Белые",
         "Samsung", 
         "Iphone", 
         'Mi',
       ],
-      selectedCategory: 0,
     }
   },
   methods: {
     setSelectedCategory(id){
       this.selectedCategory = id;
     },
-    async fetchData(){
-      this.$store.dispatch('phonesObj/fetchPhones')
+    async fetchData(id = null){
+      this.$store.dispatch('phonesObj/fetchPhones', id)
     },
   },
   computed: {
