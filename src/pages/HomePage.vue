@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    {{this.$store.state.cart}}
+    <!-- {{this.$store.state.cart}} -->
     <div  class="flex">
       <my-categories 
         :categories="categories"
@@ -10,9 +10,7 @@
 
       <div>
         <strong>Сортировка по: </strong>
-        <my-sort 
-      
-        />
+        <my-sort />
       </div>
 
     </div>
@@ -36,8 +34,7 @@
 import MyCategories from '../components/MyCategories.vue';
 import MyPhone from '../components/MyPhone.vue';
 import MySort from '../components/MySort.vue';
-
-
+import {mapGetters} from 'vuex'
 
 export default {
   components: { MyCategories, MySort, MyPhone},
@@ -53,7 +50,6 @@ export default {
         'Mi',
       ],
       selectedCategory: 0,
-      phones: []
     }
   },
   methods: {
@@ -61,17 +57,21 @@ export default {
       this.selectedCategory = id;
     },
     async fetchData(){
-      const resp = await fetch('http://localhost:3001/phones');
-      this.phones = await resp.json();
+      this.$store.dispatch('phonesObj/fetchPhones')
     },
   },
-  created(){
+  computed: {
+    ...mapGetters({
+      phones: 'phonesObj/getPhones',
+    })
+  },
+  mounted(){
     this.fetchData()
   }
 }
 </script>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
   *{
     font-family: Poppins;
@@ -99,5 +99,23 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
     }
+  }
+  .btn{
+    font-weight: bold;
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #000;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+    transition: all 300ms linear;
+    border-radius: 3px;
+  }
+
+  .btn:hover{
+    background-color:  rgb(56, 56, 56);
+    color: #fff;
+    transition: all 300ms linear;
+    box-shadow: 0 0 3px #000;
   }
 </style>

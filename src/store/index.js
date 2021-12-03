@@ -5,9 +5,11 @@ Vue.use(Vuex)
 
 // modules
 import cart from './cart/#index'
+import phonesObj from './phones/#index'
 
 export default new Vuex.Store({
     modules: {
-        cart
+        cart,
+        phonesObj
     }
 })

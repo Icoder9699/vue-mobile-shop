@@ -1,13 +1,9 @@
-const arr = [1,2,3,4]
+const obj = {
+    0: 'test',
+    1: "1",
+    3: "3"
+}
 
 console.log(
-    !arr.includes(
-        1
-    )
-);
-
-const colors = ['white', 'black', 'green']
-
-console.log(
-    !colors.includes('red')
+    obj[3]
 );

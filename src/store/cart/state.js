@@ -1,6 +1,6 @@
 export default function (){
     return {
-        items: {},
+        obj: { },
         totalPrice: 0,
         totalCount: 0
     }

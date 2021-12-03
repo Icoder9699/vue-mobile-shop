@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <div class="cart__empty">
+        <div class="cart__empty" v-if="this.$store.obj">
             <h2>Корзина пустая</h2>
             <p>
                 Вероятней всего, вы не заказывали ещё телефон.
@@ -11,6 +11,12 @@
                 alt="no-image"
             />
             <button class="btn btn__cart" @click="$router.push('/')">Вернутся назад</button>
+        </div>
+        <div v-else class="cart__products">
+            <h3>Ваши заказы</h3>
+            <div class="product">
+                
+            </div>
         </div>
     </div>
 </template>
@@ -59,5 +65,12 @@ export default {
         background-color: orange;
         color: #000;
         box-shadow: 0 0 3px orange;
+    }
+    .cart__products{
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+    .product{
+        border: 1px solid #ccc;
     }
 </style>
