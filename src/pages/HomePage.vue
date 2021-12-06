@@ -47,9 +47,6 @@ export default {
     }
   },
   methods: {
-    setSelectedCategory(id){
-      this.selectedCategory = id;
-    },
     async fetchData(id = null){
       this.$store.dispatch('phonesObj/fetchPhones', id)
     },

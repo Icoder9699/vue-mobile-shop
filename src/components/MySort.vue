@@ -1,29 +1,50 @@
 <template>
-    <select>
-        <option>
-            Все
+    <select v-model="sortType" @change="changeSortType">
+        <option disabled value="">
+            Выберите один из вариантов
         </option>
-        <option>
-            По цене
-        </option>
-        <option>
-            По алфавиту
+        <option v-for="sort in sorts" :key="sort.value" :value="sort.value">
+            {{sort.name}}
         </option>
     </select>
 </template>
 <script>
 export default {
-    
+    name: "MySort",
+    data(){
+        return{
+            sorts: [
+                {
+                    value: "all",
+                    name: "Все"
+                },
+                {
+                    value: "price",
+                    name:  "По цене"
+                },
+                {
+                    value: "alphabet",
+                    name: "По алфавиту"
+                }
+            ],
+            sortType: ''
+        }
+    },
+    methods: {
+        changeSortType(){
+            this.$store.dispatch('phonesObj/setSortType', this.sortType)
+             this.$store.dispatch('phonesObj/fetchPhones', this.sortType)   
+        }
+    }
 }
 </script>
 <style scoped >
     select{
         border: none;
         outline: none;
-        padding: 15px;
-        border: 1px solid #ccc;
+        padding: 10px;
     }
     select option{
-        height: 10px;
+        height: 5px;
     }
 </style>

@@ -22,7 +22,7 @@
                             {{color}}
                         </li>
                     </ul>
-                    <button class="btn btn__add">Добавить</button>
+                    <button class="btn btn__add" @click="addToCart">Добавить</button>
                     <button class="btn btn__back" @click="$router.push('/')">
                         Назад
                     </button>
@@ -48,10 +48,19 @@ export default {
     },
     methods: {
         selectColor(color){
-            console.log(color);
+            this.selectedColor = color
+        },
+        addToCart(){
+             const phone = {
+                id: this.phone.id,
+                color: this.selectedColor,
+                name: this.phone.name,
+                price: this.phone.price,
+            }
+            this.$store.dispatch('cart/addToCart', phone)
         }
     },
-    created(){
+    mounted(){
         this.phone = this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id) 
     }
 }

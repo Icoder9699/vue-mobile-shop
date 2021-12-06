@@ -13,8 +13,8 @@
         </div>
         
         <div class="flex">
-                <!-- <button class="btn btn__info" @click="$router.push(`phones/${phone.id}`)">Подробно</button> -->
-                <button class="btn btn__info" @click="$router.push({name: 'phones', params: {id: phone.id}})">Подробно</button>
+            <!-- <button class="btn btn__info" @click="$router.push(`phones/${phone.id}`)">Подробно</button> -->
+            <button class="btn btn__info" @click="$router.push({name: 'phones', params: {id: phone.id}})">Подробно</button>
         </div>
     </div>
 </template>

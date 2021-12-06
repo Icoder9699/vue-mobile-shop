@@ -4,7 +4,7 @@ export function getPhones(state){
 
 export function getPhoneById(state){
     return (id) => {
-        console.log(state.phones)
+        console.log(state);
         return state.phones.find(phone => phone.id === id)
     }
 }

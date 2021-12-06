@@ -31,7 +31,7 @@ export default {
         cursor: pointer;
     }
     .logo span{
-            background-color: #000;
-            padding: 10px;
+        background-color: #000;
+        padding: 10px;
     }
 </style>
