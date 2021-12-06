@@ -14,10 +14,9 @@
                     <ul class="colors">
                         <li 
                             v-for="color in this.phone.colors" 
-                            v-bind:key="color"
-                            :class="'btn__' + color"
-                            :id="(color == selectedColor) ? `btn__color-active` : '' "
+                            :key="color"
                             @click="selectColor(color)"
+                            :class="(selectColor === color) ? 'btn__active' : 'btn'"
                         >
                             {{color}}
                         </li>
@@ -60,8 +59,8 @@ export default {
             this.$store.dispatch('cart/addToCart', phone)
         }
     },
-    mounted(){
-        this.phone = this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id) 
+    async mounted(){
+        this.phone = await this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id) 
     }
 }
 </script>
@@ -107,6 +106,7 @@ export default {
     }
     .colors li {
         border: 1px solid orange;
+        color: orange;
         padding: 10px;
         width: 70px;
         text-align: center;
@@ -121,6 +121,10 @@ export default {
     .colors li:hover{
         transition: all 300ms linear;
         color: #fff;
+        background-color: orange;
+    }
+    .btn{
+        box-shadow: 0;
     }
     .btn__add{
         width: 300px;

@@ -33,7 +33,7 @@ export default {
     methods: {
         changeSortType(){
             this.$store.dispatch('phonesObj/setSortType', this.sortType)
-             this.$store.dispatch('phonesObj/fetchPhones', this.sortType)   
+            //  this.$store.dispatch('phonesObj/fetchPhones', this.sortType)   
         }
     }
 }
@@ -43,8 +43,9 @@ export default {
         border: none;
         outline: none;
         padding: 10px;
+        font-size: 15px;
     }
     select option{
-        height: 5px;
+        padding: 10px;
     }
 </style>

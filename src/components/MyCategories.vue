@@ -37,7 +37,7 @@
         methods: {
             changeCategory(id){
                 this.$store.dispatch('phonesObj/setCategory', id)   
-                this.$store.dispatch('phonesObj/fetchPhones', id)   
+                // this.$store.dispatch('phonesObj/fetchPhones', id)   
                 this.selectedCategory = id         
             }
         },

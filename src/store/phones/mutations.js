@@ -17,6 +17,6 @@ export function setCategory(state,payload){
 }
 
 export function setSortType(state, payload){
-    console.log('payload');
+
     state.sortType = payload
 }
