@@ -1,6 +1,6 @@
 export default function (){
     return {
-        obj: { },
+        phones: [],
         totalPrice: 0,
         totalCount: 0
     }

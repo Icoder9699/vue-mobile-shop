@@ -2,21 +2,21 @@
     <div>
         <div class="row" v-if="phone">
             <div class="column">
-            <div class="column__info">
+                <div class="column__info">
                     <h2>Смартфон: {{this.phone.name}}</h2>
                     <p class="column__info-text">
                         {{this.phone.info}}
                     </p>
                     <h4 class="column__info-price">Цена продукта: <span>{{this.phone.price}}$</span></h4>
-            </div>
+                </div>
                 <div class="btns">
                     <p>Выберите цвет смартфона:</p>
                     <ul class="colors">
                         <li 
-                            v-for="color in this.phone.colors" 
+                            v-for="(color, index) in this.phone.colors" 
                             :key="color"
-                            @click="selectColor(color)"
-                            :class="(selectColor === color) ? 'btn__active' : 'btn'"
+                            @click="selectColor(index)"
+                            :class="(index === selectedColor) ? 'btn__active' : 'btn'"
                         >
                             {{color}}
                         </li>
@@ -36,31 +36,31 @@
     
 </template>
 <script>
-
 export default {
     name: "PhonePage",
     data(){
         return{
             phone: {},
-            selectedColor: "",
+            selectedColor: 0,
         }
     },
     methods: {
-        selectColor(color){
-            this.selectedColor = color
+        selectColor(id){
+            this.selectedColor = id
         },
         addToCart(){
              const phone = {
                 id: this.phone.id,
-                color: this.selectedColor,
+                color: this.phone.colors[this.selectedColor],
                 name: this.phone.name,
                 price: this.phone.price,
+                imageUrl: this.phone.imageUrl
             }
             this.$store.dispatch('cart/addToCart', phone)
         }
     },
     async mounted(){
-        this.phone = await this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id) 
+        this.phone = await this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id)
     }
 }
 </script>
@@ -68,7 +68,6 @@ export default {
     .notfound{
         text-align: center;
         margin: 100px;
-
     }
     .row{
         display: flex;
@@ -123,6 +122,12 @@ export default {
         color: #fff;
         background-color: orange;
     }
+
+    .btn__active{
+        background-color: orange;
+        color: #fff !important;
+    }
+
     .btn{
         box-shadow: 0;
     }

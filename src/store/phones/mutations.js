@@ -12,11 +12,9 @@ export async function fetchPhones(state){
 }
 
 export function setCategory(state,payload){
-    
     state.category = payload
 }
 
 export function setSortType(state, payload){
-
     state.sortType = payload
 }
