@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <div class="cart__empty" v-if="!this.$store.state.cart.phones">
+        <div class="cart__empty" v-if="!this.$store.state.cart.phones.length > 0">
             <h2>Корзина пустая</h2>
             <p>
                 Вероятней всего, вы не заказывали ещё телефон.
@@ -25,11 +25,11 @@
                         <strong>Цена: </strong>{{cartItem.price}}$
                     </div>
                     <div class="counter">
-                        <button>-</button> 
+                        <button @click="decrement(cartItem.id)">-</button> 
                             {{cartItem.count}}
-                        <button>+</button> 
+                        <button @click="increment(cartItem.id)">+</button> 
                     </div>
-                    <button class="btn btn__delete">удалить</button>
+                    <button class="btn btn__delete" @click="removeItem(cartItem.id)">удалить</button>
                 </div>
             </div>
         </div>
@@ -39,10 +39,28 @@
 import {mapGetters} from 'vuex'
 export default {
     name: "CartPage",
+    data(){
+        return{ 
+            isRemove: false
+        }
+    },
     computed: {
         ...mapGetters({
-            cartItems:'cart/getCartItems'
+            cartItems:'cart/getCartItems',
         })
+    },
+    methods: {
+        increment(id){
+            this.$store.dispatch('cart/incrementItemQuantity', id)
+        },
+        decrement(id){
+            this.$store.dispatch('cart/decrementItemQuantity', id)
+        },
+        removeItem(id){
+            if(window.confirm('Точно хотите удалить ?')){
+                this.$store.dispatch('cart/removeItem', id)
+            }
+        }
     }
 }
 </script>
@@ -106,10 +124,17 @@ export default {
     }
     .counter button{
         border-radius: 50%;
+        background-color: transparent;
         border: 1px solid #ccc;
         margin: 10px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 18px;
+        color: #ccc;
+        transition: all 300ms linear;
+    }
+    .counter button:hover{
+        background-color: #ccc;
+        color: #fff;
     }
     .btn__delete{
         width: 80px;

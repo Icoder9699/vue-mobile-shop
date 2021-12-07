@@ -2,17 +2,20 @@
     <router-link :to="{name: 'cart'}" class="cart">
         Корзина 
         <strong>
-            0 $
+            {{ $store.getters['cart/getCartTotalPrice']}} $
         </strong>
         /
         <strong>
-            0
+            {{ $store.getters['cart/getCartTotalCount']}} 
         </strong>
     </router-link>
 </template>
 <script>
 export default {
-    name: 'MyCart'
+    name: 'MyCart',
+    getters: {
+
+    }
 }
 </script>
 <style scoped>
