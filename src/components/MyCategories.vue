@@ -58,7 +58,7 @@
         border: 1px solid #ccc;
         padding: 10px;
         cursor: pointer;
-        width: 80px;
+        width: 100px;
         text-align: calc();
         transform: skew(-15deg);
     }

@@ -99,6 +99,7 @@ export default {
         color: orange;
     }
     .colors{
+        margin: 10px 0; 
         display: flex;
         padding: 0;
         list-style-type: none;

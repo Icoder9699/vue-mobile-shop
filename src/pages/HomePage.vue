@@ -69,10 +69,9 @@ export default {
   }
   #home{
     padding: 20px;
-    max-width: 1200px;
+    max-width:  1200px;
     margin: 0 auto;
   }
-
 
   .products{
     display: flex;
@@ -93,7 +92,6 @@ export default {
   }
   .btn{
     font-weight: bold;
-    width: 45%;
     padding: 10px;
     border: 1px solid #000;
     color: #000;

@@ -7,3 +7,4 @@ const obj = {
 console.log(
     obj[3]
 );
+

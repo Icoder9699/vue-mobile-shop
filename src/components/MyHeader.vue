@@ -5,6 +5,9 @@
             Mobile <span>Store</span>
             </h1>
       </router-link>
+      <div v-if="token">
+        
+      </div>
     <my-cart />
     </div>
 </template>
@@ -18,11 +21,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .flex{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 20px 0;
     }
     .logo{
         text-decoration: none;

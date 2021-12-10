@@ -8,7 +8,7 @@
 <script>
 import MainLayout from './templates/MainLayout.vue'
 import EmptyLayout from './templates/EmptyLayout.vue'
-
+import Cookies from 'js-cookie'
 export default {
   name: 'app',
   components: {
@@ -26,6 +26,13 @@ export default {
     }
   },
   created(){
+    if(Cookies.get('token') == null){
+      console.log('token detected');
+      this.$router.push({name: "auth"})
+    }else{
+      this.$router.push({name: "home"})
+      console.log('null');
+    }
     this.$store.dispatch('phonesObj/fetchPhones')
   }
 }
@@ -34,7 +41,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Poppins:wght@300;400;600&display=swap');
   *{
-    font-family: Montserrat;
+    font-family: Montserrat ;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -43,5 +50,12 @@ export default {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+  }
+  .flex{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
   }
 </style>

@@ -53,7 +53,6 @@ export default {
         display: flex;
         flex-direction: column;
     }
-    
     .card__img{
         width: 200px;
         height: 200px;
@@ -65,16 +64,10 @@ export default {
         object-fit: contain;
     }
     .cart__title{
+        margin-top: 10px;;
         flex: 1 1 auto;
     }
-    .flex{
-        display: flex;
-        align-items: center;
-        list-style-type: none;
-        justify-content: space-between;
-        padding: 0;
-    }
-    
+   
     .disabled{
         color: rgb(243, 229, 229);
         border-color: #ccc !important;
@@ -83,8 +76,10 @@ export default {
         pointer-events: none;
     }
     .btn__info{
+        margin-top: 12px;
         border-color: rgb(40, 7, 92);
         color: rgb(40, 7, 92);
+        padding: 5px 15px;
     }
 
     .btn__info:hover{
