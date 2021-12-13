@@ -26,12 +26,14 @@ export default {
     }
   },
   created(){
-    if(Cookies.get('token') == null){
-      console.log('token detected');
+    const token = Cookies.get('token')
+    if(!token){
+      console.log('token null');
       this.$router.push({name: "auth"})
     }else{
-      this.$router.push({name: "home"})
-      console.log('null');
+      console.log('token detected');
+      this.$store.dispatch('auth/logIn', {token, isAuthenticated: true})
+      this.$router.push({name: "home"}, token)
     }
     this.$store.dispatch('phonesObj/fetchPhones')
   }

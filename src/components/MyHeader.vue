@@ -5,19 +5,27 @@
             Mobile <span>Store</span>
             </h1>
       </router-link>
-      <div v-if="token">
-        
+      <div v-if="this.token">
+          <router-link to="/">Logout</router-link>
+      </div>
+      <div v-else>
+          Sign In
       </div>
     <my-cart />
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MyCart from "./MyCart.vue"
 
 export default {
-    components: {MyCart}
-    
+    components: {MyCart},
+    computed:{
+        ...mapGetters({
+            token: 'auth/getToken'
+        }),
+    },
 }
 </script>
 
