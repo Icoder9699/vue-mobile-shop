@@ -1,25 +1,16 @@
-export function addToCart(state, payload){
-    const product = state.phones.find(phone => phone.id === payload.id)
-    if(product){
-        product.count++
-        state.phones[payload.id] = product
-    }else{
-        payload.count = 1
-        state.phones.push(payload)
-    }
-    
+
+export function addToCart(state, phone){
+    state.phones.push({
+        ...phone,
+    })
 }
 
-export function pushProductToCart(state,payload){
-    state.phones.push(payload)
-}
-
-export function incrementItemQuantity(state, id){
+export function incrementItemCount(state, { id }){
     const cartItem = state.phones.find(phone => phone.id === id)
-    cartItem.count++
+    cartItem.count += 1
 }
 
-export function decrementItemQuantity(state, id){
+export function decrementItemCount(state, id){
     const cartItem = state.phones.find(phone => phone.id === id)
     if(cartItem.count === 1){
         cartItem.count = 1

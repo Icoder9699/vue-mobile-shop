@@ -24,14 +24,6 @@ export default [
         component: () => import('../pages/CartPage')
     },
     {
-        path: "/auth",
-        name: 'auth',
-        meta: {
-            layout: "empty"
-        },
-        component: () => import('../pages/AuthPage')
-    },
-    {
         path: "/phones/:id",
         name: "phones",
         meta: {
@@ -39,5 +31,5 @@ export default [
         },
         component: () => import('../pages/PhonePage')
 
-    }
+    },
 ];

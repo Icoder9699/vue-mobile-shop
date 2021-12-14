@@ -98,7 +98,6 @@ export default {
     background: #fff;
     cursor: pointer;
     transition: all 300ms linear;
-    border-radius: 3px;
   }
 
   .btn:hover{

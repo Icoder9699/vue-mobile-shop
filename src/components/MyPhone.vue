@@ -13,7 +13,6 @@
         </div>
         
         <div class="flex">
-            <!-- <button class="btn btn__info" @click="$router.push(`phones/${phone.id}`)">Подробно</button> -->
             <button class="btn btn__info" @click="$router.push({name: 'phones', params: {id: phone.id}})">Подробно</button>
         </div>
     </div>
@@ -39,7 +38,7 @@ export default {
                 name: this.phone.name,
                 price: this.phone.price,
             }
-            this.$store.dispatch('cart/addToCart', phone)
+            this.$store.dispatch('cart/pushToCart', phone)
         }
     }
 }

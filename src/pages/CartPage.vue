@@ -88,7 +88,6 @@ export default {
         margin: 0 auto;
         border: 2px solid orange;
         background-color: transparent;;
-        transform: skew(-15deg);
         color: orange;
         font-weight: bold;
         transition: all 300ms linear ease-in;

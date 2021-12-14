@@ -85,7 +85,7 @@ export default {
             try{
                 const registerUrl='https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBp9z8nyfO4zGTL7u9cd7HF3QeRrB3Og-Q';
                 const {data} = await axios.post(registerUrl, user)
-                // TODO: data => { idToken, ExpiresIn } localstorage ExpiresIn: 3600 
+                // data => { idToken, ExpiresIn } localstorage ExpiresIn: 3600 
                 if(data){
                     this.$store.dispatch('auth/logIn', {token: data.idToken, isAuthenticated: true})
                     this.$router.push({name: "home"})
@@ -102,7 +102,6 @@ export default {
                 // username: this.username,
                 // password_confirmation: this.password_confirmation,
             }
-            console.log(data);
             try{
                 const url='https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBp9z8nyfO4zGTL7u9cd7HF3QeRrB3Og-Q';
                 await axios.post(url, data)

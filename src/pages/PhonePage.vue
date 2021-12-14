@@ -16,13 +16,23 @@
                             v-for="(color, index) in this.phone.colors" 
                             :key="color"
                             @click="selectColor(index)"
-                            :class="(index === selectedColor) ? 'btn__active' : 'btn'"
+                            :class="(index === selectedColor) ? 'btn btn__active' : 'btn'"
                         >
                             {{color}}
                         </li>
                     </ul>
-                    <button class="btn btn__add" @click="addToCart">Добавить</button>
-                    <button class="btn btn__back" @click="$router.push('/')">
+                    <button 
+                        class="btn btn__add disabled" 
+                        @click="addToCart"
+                        :disabled="!isAuthenticated"
+
+                    >
+                        Добавить
+                    </button>
+                    <button 
+                        class="btn btn__back" 
+                        @click="$router.push('/')"
+                    >
                         Назад
                     </button>
                 </div>
@@ -36,6 +46,7 @@
     
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: "PhonePage",
     data(){
@@ -49,6 +60,7 @@ export default {
             this.selectedColor = id
         },
         addToCart(){
+            console.log('add');
              const phone = {
                 id: this.phone.id,
                 color: this.phone.colors[this.selectedColor],
@@ -56,11 +68,17 @@ export default {
                 price: this.phone.price,
                 imageUrl: this.phone.imageUrl
             }
-            this.$store.dispatch('cart/addToCart', phone)
+            this.$store.dispatch('cart/pushToCart', phone)
         }
+    },
+    computed: {
+        ...mapGetters({
+            isAuthenticated: 'auth/isAuthenticated'
+        })
     },
     async mounted(){
         this.phone = await this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id)
+        console.log(this.isAuthenticated);
     }
 }
 </script>
@@ -107,7 +125,7 @@ export default {
     .colors li {
         border: 1px solid orange;
         color: orange;
-        padding: 10px;
+        padding: 5px ;
         width: 70px;
         text-align: center;
         cursor: pointer;
@@ -115,7 +133,6 @@ export default {
         font-size: 14px;
         font-weight: bold;
         margin-right: 10px;
-        border-radius: 3px;
         text-transform: uppercase;
     }
     .colors li:hover{
@@ -123,12 +140,21 @@ export default {
         color: #fff;
         background-color: orange;
     }
-
+    button:disabled{
+        background-color: #ccc;
+        border: none;
+        cursor: not-allowed;
+        /* pointer-events: none; */
+        color: #fff;
+    }
+    button:disabled:hover{
+        background: #ccc;
+        box-shadow: none;
+    }
     .btn__active{
         background-color: orange;
         color: #fff !important;
     }
-
     .btn{
         box-shadow: 0;
     }
@@ -142,43 +168,6 @@ export default {
         background-color: #20c997;
         box-shadow: 0 0 3px #20c997;
         color: #fff;
-    }
-    .btn__black{
-        border: 1px solid black !important;
-    }
-    .btn__black:hover{
-        background-color: #000 !important
-    }
-    .btn__black-active{
-        background-color: #000 !important
-    }
-    .btn__gray{
-        border: 1px solid gray !important;
-        color: gray;
-    }
-    .btn__gray:hover{
-        background-color: gray;
-        color: gray;
-    }
-    .btn__gray-active{
-        background-color: gray;
-        color: gray;
-    }
-    .btn__white{
-        border: 1px solid #ccc !important;
-        color: #ccc !important;
-    }
-    .btn__white:hover{
-        background-color: #ccc !important;
-        color: #fff !important;
-    }
-    .btn__white-active{
-        background-color: #ccc !important;
-        color: #fff !important;
-    }
-    .btn__back:hover{
-        background-color: #000 !important;
-        color: #fff !important;
     }
     .btn__back{
         width: 300px;

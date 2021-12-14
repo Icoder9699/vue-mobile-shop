@@ -60,7 +60,6 @@
         cursor: pointer;
         width: 100px;
         text-align: calc();
-        transform: skew(-15deg);
     }
 
     .active{

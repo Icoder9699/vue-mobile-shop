@@ -2,16 +2,18 @@
     <div class="flex">
         <router-link class="logo" :to="{name: 'home'}">
             <h1>
-            Mobile <span>Store</span>
+                Mobile <span>Store</span>
             </h1>
       </router-link>
-      <div v-if="this.token">
-          <router-link to="/">Logout</router-link>
-      </div>
-      <div v-else>
-          Sign In
-      </div>
-    <my-cart />
+    <div class="flex">
+        <div v-if="this.token">
+            <button class="btn btn__logout" @click="logOut">Logout</button>
+        </div>
+        <div v-else>
+            <button class="btn btn__login" @click="logIn">Sign In</button>
+        </div>
+        <my-cart />
+    </div>
     </div>
 </template>
 
@@ -26,6 +28,15 @@ export default {
             token: 'auth/getToken'
         }),
     },
+    methods: {
+        logOut(){
+            this.$store.dispatch('auth/logOut')
+            // this.$router.push({name: 'cart'})
+        },
+        logIn(){
+            this.$router.push({name: "auth"})
+        }
+    }
 }
 </script>
 
@@ -39,11 +50,16 @@ export default {
     .logo{
         text-decoration: none;
         color: orange;
-        transform: skewX(-15deg);
         cursor: pointer;
     }
     .logo span{
         background-color: #000;
         padding: 10px;
+    }
+    .btn{
+        border: none;
+        margin-right: 10px;
+        padding: 5px;
+        border-radius: none ;
     }
 </style>

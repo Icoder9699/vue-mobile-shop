@@ -1,18 +1,22 @@
-export function addToCart({commit}, payload){
-  commit('addToCart', payload)
+export function pushToCart({state,commit}, payload){
+  const cartItem = state.phones.find(phone => phone.id === payload.id)
+  if(!cartItem){
+    commit('addToCart', {...payload, count: 1})
+  }else{
+    commit('incrementItemCount', cartItem)
+  }
 }
 
 export function updateCart({commit}, payload){
     return commit('updateCart', payload)
 }
 
-
-export function incrementItemQuantity({commit}, payload){
-  return commit('incrementItemQuantity', payload)
+export function incrementItemCount({commit}, payload){
+  return commit('incrementItemCount', payload)
 }
 
-export function decrementItemQuantity({commit}, payload){
-  return commit('decrementItemQuantity', payload)
+export function decrementItemCount({commit}, payload){
+  return commit('decrementItemCount', payload)
 }
 
 export function removeItem({commit}, payload){

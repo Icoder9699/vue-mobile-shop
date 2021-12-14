@@ -25,7 +25,6 @@ export default {
         border: 2px solid orange;
         color: orange;
         padding: 10px 15px;
-        transform: skewX(-10deg);
         font-weight: bold;
     }
     .cart:hover{

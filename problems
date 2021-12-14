@@ -7,3 +7,8 @@ new module auth vuex
 npm i js-cookie
     config in store 
 
+
+// vuex-persistetstate 
+not changing without routes 
+
+

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
-
+import store from '../store'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -9,6 +9,15 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
+
+// route protection
+router.beforeEach((to, from, next) => {
+    if (!store.getters['auth/isAuthenticated'] && to.meta?.protected) {
+      next({ name: 'auth' })
+    } else {
+      next();
+    }
+})   
 
 export default router
 
