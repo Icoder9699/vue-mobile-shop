@@ -31,7 +31,7 @@
                     </button>
                     <button 
                         class="btn btn__back" 
-                        @click="$router.push('/')"
+                        @click="$router.push('/home')"
                     >
                         Назад
                     </button>

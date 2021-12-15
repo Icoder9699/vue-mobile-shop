@@ -1,11 +1,12 @@
 
 export function addToCart(state, phone){
     state.phones.push({
-        ...phone,
+        ...phone
     })
 }
 
-export function incrementItemCount(state, { id }){
+export function incrementItemCount(state, id ){
+    console.log(id);
     const cartItem = state.phones.find(phone => phone.id === id)
     cartItem.count += 1
 }

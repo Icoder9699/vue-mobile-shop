@@ -53,6 +53,7 @@ export default {
         cursor: pointer;
     }
     .logo span{
+        border-radius: 50px 0 50px 0;
         background-color: #000;
         padding: 10px;
     }

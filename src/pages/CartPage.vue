@@ -51,10 +51,10 @@ export default {
     },
     methods: {
         increment(id){
-            this.$store.dispatch('cart/incrementItemQuantity', id)
+            this.$store.dispatch('cart/incrementItemCount', id)
         },
         decrement(id){
-            this.$store.dispatch('cart/decrementItemQuantity', id)
+            this.$store.dispatch('cart/decrementItemCount', id)
         },
         removeItem(id){
             if(window.confirm('Точно хотите удалить ?')){
@@ -105,15 +105,15 @@ export default {
     .order{
         margin-top: 10px;
         border: 1px solid #ccc;
-        height: 60px;
-        padding: 20px;
+        max-height: 80px;
+        padding: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     .order img {
-        height: 80px;
-        width: 80px;
+        height: 75px;
+        width: 75px;
         margin-right: 10px;
         object-fit: contain;
     }
@@ -123,6 +123,7 @@ export default {
     }
     .counter button{
         border-radius: 50%;
+        width: 30px;
         background-color: transparent;
         border: 1px solid #ccc;
         margin: 10px;
@@ -134,6 +135,8 @@ export default {
     .counter button:hover{
         background-color: #ccc;
         color: #fff;
+        border-color: #ccc;
+        box-shadow: 0 0 3px #ccc;
     }
     .btn__delete{
         width: 80px;
