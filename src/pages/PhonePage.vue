@@ -16,9 +16,9 @@
                             v-for="(color, index) in this.phone.colors" 
                             :key="color"
                             @click="selectColor(index)"
-                            :class="(index === selectedColor) ? 'btn btn__active' : 'btn'"
+                            :class="(index === selectedColor) ? `btn__${color} btn__active` : `btn__${color}`"
                         >
-                            {{color}}
+                            <!-- {{color}} -->
                         </li>
                     </ul>
                     <button 
@@ -119,10 +119,7 @@ export default {
         list-style-type: none;
     }
     .colors li {
-        border: 1px solid orange;
-        color: orange;
-        padding: 10px ;
-        width: 70px;
+        padding: 15px ;
         text-align: center;
         cursor: pointer;
         transition: all 300m linear;
@@ -130,15 +127,16 @@ export default {
         font-weight: bold;
         margin-right: 10px;
         text-transform: uppercase;
+        border: 1px solid #ccc;
     }
     .colors li:hover{
         transition: all 300ms linear;
         color: #fff;
-        background-color: orange;
+        box-shadow: orange;
     }
     .btn__active{
         background-color: orange;
-        color: #fff !important;
+        box-shadow: 0 0 3px 2px orange;
     }
     .btn{
         box-shadow: 0;
@@ -157,6 +155,18 @@ export default {
     .btn__back{
         width: 300px;
         margin: 0 10px;
+    }
+
+    /* phone colors */
+    .btn__black{
+        background-color: #000;
+    }
+
+    .btn__gray{
+        background: gray;
+    }
+    .btn__white{
+        background-color: rgb(246, 246, 246);
     }
 
 </style>

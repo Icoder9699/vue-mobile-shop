@@ -1,19 +1,21 @@
 <template>
-    <div class="card">
-        <div class="card__img">
-            <img 
-                :src= "phone.imageUrl"
-                :alt="phone.name"
-            />
-        </div>
+    <div class="card__wrapper">
+        <div class="card">
+            <div class="card__img">
+                <img 
+                    :src= "phone.imageUrl"
+                    :alt="phone.name"
+                />
+            </div>
 
-        <div class="cart__title">
-            <h3>{{phone.name}}</h3>
-            <p class="card__price">Цена: <strong>{{phone.price}}$</strong></p>
-        </div>
-        
-        <div class="flex">
-            <button class="btn btn__info" @click="$router.push({name: 'phones', params: {id: phone.id}})">Подробно</button>
+            <div class="cart__title">
+                <h3>{{phone.name}}</h3>
+                <p class="card__price">Цена: <strong>{{phone.price}}$</strong></p>
+            </div>
+            
+            <div class="flex">
+                <button class="btn btn__info" @click="$router.push({name: 'phones', params: {id: phone.id}})">Подробно</button>
+            </div>
         </div>
     </div>
 </template>
@@ -44,11 +46,13 @@ export default {
 }
 </script>
 <style scoped>
+    .card__wrapper{
+        width: 33.3%;
+    }
     .card{
-        margin: 20px 0;
-        padding: 25px;
-        width: 300px;
+        margin: 20px;
         box-shadow: 0 0 3px #ccc;
+        padding: 25px;
         display: flex;
         flex-direction: column;
     }

@@ -64,8 +64,7 @@ export default {
   .products{
     display: flex;
     flex-wrap: wrap;
-    margin: 20px 0;
-    justify-content: space-between;
+    margin: 20px -20px;
   }
 
   @media (max-width:765px) {
