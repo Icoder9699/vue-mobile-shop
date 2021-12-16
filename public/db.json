@@ -53,6 +53,15 @@
             "price": 700,
             "category": 3,
             "info": "Mi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          },
+          {
+            "id": 6,
+            "imageUrl": "https://www.creditasia.uz/upload/iblock/797/smartfon-redmi-note-10s-6-128gb-onyx-gray.gif",
+            "name": "Redmi 11",
+            "colors": ["black", "gray", "white"],
+            "price": 1200,
+            "category": 3,
+            "info": "RedMi 11 Ultra, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
           }
     ]
 }

@@ -6,9 +6,9 @@ export function addToCart(state, phone){
 }
 
 export function incrementItemCount(state, id ){
-    console.log(id);
     const cartItem = state.phones.find(phone => phone.id === id)
-    cartItem.count += 1
+    console.log(cartItem);
+    cartItem.count = cartItem.count + 1
 }
 
 export function decrementItemCount(state, id){

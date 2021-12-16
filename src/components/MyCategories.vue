@@ -59,11 +59,12 @@
         padding: 10px;
         cursor: pointer;
         width: 100px;
-        text-align: calc();
     }
 
     .active{
         background-color:rgb(61, 61, 61);
+        box-shadow: 0 0 4px rgb(61, 61, 61);
+        border-color: rgb(61, 61, 61) !important;
         color: rgb(253, 253, 253);
         font-weight: bold;
     }

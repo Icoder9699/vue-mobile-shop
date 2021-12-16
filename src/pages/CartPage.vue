@@ -1,7 +1,7 @@
 <template>
     <div class="cart">
         <div class="cart__empty" v-if="!this.$store.state.cart.phones.length > 0">
-            <h2>Корзина пустая</h2>
+            <h2>Корзина пуста</h2>
             <p>
                 Вероятней всего, вы не заказывали ещё телефон.
                 Для того, чтобы заказать телефон, перейдите на главную страницу.        
@@ -10,18 +10,18 @@
                 src="../assets/cart.png"
                 alt="no-image"
             />
-            <button class="btn btn__cart" @click="$router.push('/')">Вернутся назад</button>
+            <button class="btn btn__cart" @click="$router.push('/home')">Вернутся назад</button>
         </div>
         <div v-else class="cart__orders">
             <h2>Ваши заказы</h2>
             <div class="orders">
                 <div class="order" v-for="cartItem in cartItems" :key="cartItem.id">
                     <img :src="cartItem.imageUrl" :alt="cartItem.name" />
-                    <div>
+                    <div class="order-name">
                         <strong>Название продукта: </strong> 
                         <div>{{cartItem.name}}</div>
                     </div>
-                    <div>
+                    <div class="order-price">
                         <strong>Цена: </strong>{{cartItem.price}}$
                     </div>
                     <div class="counter">
@@ -32,6 +32,17 @@
                     <button class="btn btn__delete" @click="removeItem(cartItem.id)">удалить</button>
                 </div>
             </div>
+            <p :style="{textAlign: 'center', padding: '10px'}">
+                Чтобы заказать продукт надо пройти
+                <router-link :to="{name: 'auth'}">регистрацию</router-link>
+            </p>
+            <button 
+                class="btn btn__cart" 
+                @click="orderProducts"
+                :disabled="!isAuthenticated"
+            >
+                Заказать
+            </button>
         </div>
     </div>
 </template>
@@ -47,6 +58,7 @@ export default {
     computed: {
         ...mapGetters({
             cartItems:'cart/getCartItems',
+            isAuthenticated: 'auth/isAuthenticated'
         })
     },
     methods: {
@@ -60,12 +72,18 @@ export default {
             if(window.confirm('Точно хотите удалить ?')){
                 this.$store.dispatch('cart/removeItem', id)
             }
+        },
+        orderProducts(){
+            console.log(this.cartItems);
         }
-    }
+    },
 }
 </script>
 
 <style scoped>
+    .cart{
+        padding-right: 8px;
+    }
     .cart__empty{
         display: flex;
         flex-direction: column;
@@ -74,6 +92,10 @@ export default {
         width: 500px;
         margin: 0 auto;
         text-align: center;
+    }
+    .cart__empty p {
+        color: rgb(119, 119, 119);
+        padding: 5px;
     }
     .cart__empty img{
         width: 300px;
@@ -86,7 +108,7 @@ export default {
         height: 50px;
         width: 200px;
         margin: 0 auto;
-        border: 2px solid orange;
+        border: 1px solid orange;
         background-color: transparent;;
         color: orange;
         font-weight: bold;
@@ -98,9 +120,28 @@ export default {
         color: #000;
         box-shadow: 0 0 3px orange;
     }
+    button:disabled{
+        background-color: #ccc;
+        border: none;
+        cursor: not-allowed;
+        /* pointer-events: none; */
+        color: #fff;
+    }
+    button:disabled:hover{
+        color: #fff;
+        background: #ccc;
+        box-shadow: none;
+    }
     .cart__orders{
         border: 1px solid #ccc;
         padding: 20px;
+        min-height: calc(100vh - 175px);
+        display: flex;
+        flex-direction: column;
+    }
+    .orders{
+        overflow-y: auto;
+        flex: 1 1 auto;
     }
     .order{
         margin-top: 10px;
@@ -116,6 +157,13 @@ export default {
         width: 75px;
         margin-right: 10px;
         object-fit: contain;
+    }
+    .order-name{
+        width: 200px;
+        overflow-x: auto;
+    }
+    .order-price{
+        width: 100px;
     }
     .counter{
         display: flex;

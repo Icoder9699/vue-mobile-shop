@@ -24,8 +24,6 @@
                     <button 
                         class="btn btn__add disabled" 
                         @click="addToCart"
-                        :disabled="!isAuthenticated"
-
                     >
                         Добавить
                     </button>
@@ -60,7 +58,6 @@ export default {
             this.selectedColor = id
         },
         addToCart(){
-            console.log('add');
              const phone = {
                 id: this.phone.id,
                 color: this.phone.colors[this.selectedColor],
@@ -78,7 +75,6 @@ export default {
     },
     async mounted(){
         this.phone = await this.$store.getters['phonesObj/getPhoneById'](this.$route.params.id)
-        console.log(this.isAuthenticated);
     }
 }
 </script>
@@ -125,7 +121,7 @@ export default {
     .colors li {
         border: 1px solid orange;
         color: orange;
-        padding: 5px ;
+        padding: 10px ;
         width: 70px;
         text-align: center;
         cursor: pointer;
@@ -139,17 +135,6 @@ export default {
         transition: all 300ms linear;
         color: #fff;
         background-color: orange;
-    }
-    button:disabled{
-        background-color: #ccc;
-        border: none;
-        cursor: not-allowed;
-        /* pointer-events: none; */
-        color: #fff;
-    }
-    button:disabled:hover{
-        background: #ccc;
-        box-shadow: none;
     }
     .btn__active{
         background-color: orange;

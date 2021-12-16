@@ -3,12 +3,12 @@ export function pushToCart({state,commit}, payload){
   if(!cartItem){
     commit('addToCart', {...payload, count: 1})
   }else{
-    commit('incrementItemCount', cartItem)
+    commit('incrementItemCount', cartItem.id)
   }
 }
 
 export function updateCart({commit}, payload){
-    return commit('updateCart', payload)
+  return commit('updateCart', payload)
 }
 
 export function incrementItemCount({commit}, payload){

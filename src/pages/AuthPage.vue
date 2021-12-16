@@ -19,7 +19,7 @@
                         type="password"
                         v-model="password"
                     />
-                    <p @click="isLogin = !isLogin">Вы не прошли регистрацию?</p>
+                    <p @click="isLogin = !isLogin">Регистрация</p>
                     <button class="btn btn__login">Войти</button>
                 </form>
            </div>

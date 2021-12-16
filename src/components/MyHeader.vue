@@ -58,9 +58,9 @@ export default {
         padding: 10px;
     }
     .btn{
-        border: none;
+        border: 1px solid #ccc;
         margin-right: 10px;
-        padding: 5px;
+        padding: 10px;
         border-radius: none ;
     }
 </style>

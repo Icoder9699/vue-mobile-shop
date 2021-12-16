@@ -67,18 +67,13 @@ export default {
         flex: 1 1 auto;
     }
    
-    .disabled{
-        color: rgb(243, 229, 229);
-        border-color: #ccc !important;
-        cursor: not-allowed;
-        color: #ccc !important;
-        pointer-events: none;
-    }
     .btn__info{
+        align-self: flex-end;
+        font-weight: 400;
         margin-top: 12px;
         border-color: rgb(40, 7, 92);
         color: rgb(40, 7, 92);
-        padding: 5px 15px;
+        padding: 10px 15px;
     }
 
     .btn__info:hover{

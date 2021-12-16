@@ -46,27 +46,15 @@ export default {
       ],
     }
   },
-  methods: {
-    async fetchData(id = null){
-      this.$store.dispatch('phonesObj/fetchPhones', id)
-    },
-  },
   computed: {
     ...mapGetters({
       phones: 'phonesObj/getPhones',
     })
   },
-  mounted(){
-    this.fetchData()
-  }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-  *{
-    font-family: Poppins;
-  }
   #home{
     padding: 20px;
     max-width:  1200px;

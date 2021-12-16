@@ -3,7 +3,6 @@ export async function fetchPhones({commit}){
 }
 
 export function setLoading({commit}, payload){
-
     return commit('setLoading', payload)
 }
 
