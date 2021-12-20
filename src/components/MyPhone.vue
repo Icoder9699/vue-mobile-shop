@@ -40,6 +40,7 @@ export default {
                 name: this.phone.name,
                 price: this.phone.price,
             }
+            
             this.$store.dispatch('cart/pushToCart', phone)
         }
     }

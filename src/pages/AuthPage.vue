@@ -3,6 +3,7 @@
         <div class="form">
            <div class="login" v-if="isLogin">
                 <h2>Войти</h2>
+                <p v-if="error">{{error}}</p>
                 <form @submit.prevent="loginUser">
                     <label for="email">Email пользователя</label>
                     <input 
@@ -73,6 +74,7 @@ export default {
             username: "",
             password: "",
             password_confirmation: "",
+            error: ""
         }
     },
     methods: {
@@ -91,7 +93,8 @@ export default {
                     this.$router.push({name: "home"})
                 }
             }catch(err){
-                console.log(err);
+                this.error = err.response.data.error.message.split('_').join(' ')
+                console.log(err)
             }
         },
         async registerUser(){

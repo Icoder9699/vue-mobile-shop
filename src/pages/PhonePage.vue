@@ -41,8 +41,8 @@
             <h2 class="notfound">Смартфон по ид: {{this.$route.params.id}} не найден</h2>
         </div>
     </div>
-    
 </template>
+
 <script>
 import { mapGetters } from 'vuex'
 export default {
@@ -58,7 +58,7 @@ export default {
             this.selectedColor = id
         },
         addToCart(){
-             const phone = {
+            const phone = {
                 id: this.phone.id,
                 color: this.phone.colors[this.selectedColor],
                 name: this.phone.name,
@@ -78,6 +78,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
     .notfound{
         text-align: center;

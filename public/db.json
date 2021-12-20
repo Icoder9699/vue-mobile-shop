@@ -1,13 +1,13 @@
 {
     "phones": [
-        {
-            "id": 0,
-            "imageUrl": "https://avatars.mds.yandex.net/get-mpic/4380539/img_id7341649431705533527.jpeg/13hq",
-            "name": "Samsung Galaxy s21",
-            "colors": ["gray", "white"],
-            "price": 1000,
-            "category": 1,
-            "info": "Samsung S21, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
+          {
+              "id": 0,
+              "imageUrl": "https://avatars.mds.yandex.net/get-mpic/4380539/img_id7341649431705533527.jpeg/13hq",
+              "name": "Samsung Galaxy s21",
+              "colors": ["gray", "white"],
+              "price": 1000,
+              "category": 1,
+              "info": "Samsung S21, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, voluptas."
           },
           {
             "id": 1,
