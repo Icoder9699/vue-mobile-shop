@@ -171,7 +171,7 @@ export default {
     }
     .counter button{
         border-radius: 50%;
-        width: 30px;
+        width: 25px;
         background-color: transparent;
         border: 1px solid #ccc;
         margin: 10px;
@@ -187,13 +187,14 @@ export default {
         box-shadow: 0 0 3px #ccc;
     }
     .btn__delete{
-        width: 80px;
-        padding: 4px;
-        border-color: red;
-        color: red;
+        border-color: rgb(161, 0, 0);
+        color: rgb(161, 0, 0);
+        padding: 5px 15px;
+        font-weight: bold;
+
     }
     .btn__delete:hover{
-        background-color: red;
+        background-color: rgb(161, 0, 0);
         color: #fff;
     }
 </style>

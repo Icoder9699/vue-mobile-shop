@@ -80,4 +80,7 @@ export default {
     justify-content: space-between;
     padding: 0;
   }
+  button{
+    text-transform: uppercase;
+  }
 </style>

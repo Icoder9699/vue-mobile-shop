@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <!-- {{this.$store.state.cart}} -->
     <div  class="flex">
       <my-categories 
         :categories="categories"
@@ -17,15 +16,36 @@
       @onChange="onChange"
     />
 
-    <div class="products" v-if="this.phones.length > 0">
+    <div 
+      class="products" 
+      v-if="this.phones.length > 0 && this.searchPhones.length == 0 && this.error.length === 0"
+    >
       <my-phone   
         v-for="phone in phones"   
         :key="phone.id"
         :phone="phone"
       />
     </div>
-    <h2 style="text-align: center; color: red;padding: 30px" v-else>Пока телефонов нет</h2>
-  
+    
+    <div class="products" v-else-if="this.searchPhones.length > 0">
+      <my-phone   
+        v-for="phone in this.searchPhones"   
+        :key="phone.id"
+        :phone="phone"
+      />
+    </div>
+
+    <h2 style="text-align: center; color: red;padding: 30px" v-else-if="this.error.length > 0">
+      {{error}}
+    </h2>
+
+    <h2
+      v-else
+      style="text-align: center; color: red;padding: 30px"
+    >
+      Пока телефонов нет
+    </h2>
+
   </div>
 </template>
 
@@ -49,7 +69,9 @@ export default {
         "Iphone", 
         'Mi',
       ],
-      search: ""
+      search: "",
+      searchPhones: [],
+      error: ''
     }
   },
   methods: {
@@ -57,13 +79,18 @@ export default {
       this.search = value
     },
     searchPhone(){
-      const phone = this.phones.map(phone => {
-        if(phone.indexOf(this.search)){
-          console.log(phone)
+      const searchPhones = this.phones.filter(item => {
+        if(item.name.toLowerCase().includes(this.search.toLowerCase())){
+          return item
         }
       })
 
-      console.log(phone);
+      if(searchPhones.length === 0){
+        return this.error = `Смартфон ${this.search} не найден`
+      }else{
+        return this.searchPhones = searchPhones
+      }
+
     }
   },
   watch: {
